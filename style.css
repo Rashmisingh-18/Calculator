@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lato&family=Luckiest+Guy&display=swap');
+
+* {
+    padding: 0;
+    margin: 5px;
+    text-align: center;
+  }
+  body {
+    margin-top: 5em;
+    background-color: rgb(134, 221, 248); /* For browsers that do not support gradients */
+    background-color: linear-gradient(to bottom right, rgb(134, 221, 248), rgb(123, 203, 166));
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 8em;
+  }
+  #calculator{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .calculator {
+    top: 250px;
+    width: 350px;
+    height: 350px;
+    margin: auto; margin-top: 0%;
+    background-color: #8f8f8f;
+    box-shadow: 5px 8px 8px 5px rgb(144, 144, 144);
+    border: 2px solid rgb(192, 192, 192);
+    border-radius: 10px;
+    padding-left: 2px;
+    padding-top: 15px;
+  }
+  #display {
+    width: 320px;
+    height: 40px;
+    padding-right: 10px;
+    text-align: right;
+    background-color: rgba(100, 82, 79, 0.529);
+    border: 2px solid rgba(163, 173, 172, 0.871);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    left: 2px;
+    top: 2px;
+    color: #c4eefa;
+    font-weight: 500;
+  }
+  .btnTop{
+    color: white;
+    background-color: #3f3e4e;
+    font-size: 14px;
+    margin: 0px auto;
+    border: 2px solid rgb(180, 178, 179);
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 60px;
+    height: 35px;
+  }
+  .btnNum {
+    color: white;
+    background-color: rgb(81, 67, 67);
+    font-size: 14px;
+    margin: auto;
+    border: 2px solid rgb(149, 147, 148);
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 60px;
+    height: 35px;
+  }
+  .btnMath {
+    color: white;
+    background-color: rgb(72, 172, 190);
+    margin: auto;
+    border: 2px solid rgb(180, 178, 179);
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 60px;
+    height: 35px;
+  }
+  .btnCalc {
+    color: white;
+    background-color: #ff9933;
+    border: 2px solid rgb(180, 178, 179);
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 60px;
+    height: 35px;
+    margin: auto;
+  }
+  section#matrix{
+    width: fit-content;
+  }
+  #matrix{
+    max-width: 60em;
+    margin: auto;
+    background-color: #8b8b8b;
+    box-shadow: 5px 8px 8px 5px rgb(144, 144, 144);
+    border: 2px solid rgb(192, 192, 192);
+    border-radius: 10px;
+  }
+  #upper{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60em;
+    height: 30em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+  }
+
+  input{
+    width: 6em;
+    height: 3.5em;
+    text-decoration: none;
+    padding: 3px;
+    font-size: 1rem;
+    border: 2px solid grey;
+    border-radius: 5px;
+  }
+  
+input.function{
+  width: 10em;
+  height: 2.8em;
+  font-size: 1.2rem;
+  background-color: #626776;
+  color: aliceblue;
+  font-weight: 700;
+}
+input.operation{
+  width: 8em;
+  height: 2.8em;
+  font-size: 1rem;
+  background-color: #5d6b7e;
+  color: aliceblue;
+  padding: 0;
+}
+tbody:hover{
+    width: 63em;
+    height: 21em;
+}
+h2{
+  text-align: center;
+  font-size: 3rem;
+  letter-spacing: 2px; word-spacing: 4px;
+  font-family: 'Luckiest Guy', cursive;
+  margin-bottom: 8px;
+  margin-right: 25px;
+  /* color: rgb(50, 4, 65); */
+  text-transform: uppercase;
+  animation: flip 4s infinite;
+}
+#head{
+  margin-left: 3em;
+  margin-bottom: 0%;
+}
+#console{
+  display: block;
+  padding-top: 5px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  height: 50%;
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
+  }
+}
+#toggle{
+  cursor: pointer;
+  text-decoration: none;
+  float: right;
+  padding: 3px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  background-color: aliceblue;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+@media only screen and (max-width: 995px) {
+
+  #matrix {
+      background-color: white;
+      border: none;
+      box-shadow: none;
+  }
+  #calculator{
+    margin: auto;
+  }
+  #toggle{
+    float: right;
+  }
+  #head{
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 490px){
+  #toggle{
+    margin-right: -160%;
+    float: right;
+  }
+}
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  overflow: visible;
+  background: #fff url('assets/load.png') no-repeat center center;
+}

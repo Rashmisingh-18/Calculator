@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <title>Scientific Calculator</title>
+</head>
+<body>
+  <div id="loader"></div>
+  <button id="toggle" onclick="myFunction()">Dark⚫/ Light⚪</button>
+    <form name="sci-calc">
+      <h2 id="head">Simple Calculator</h2>
+      <section id="calculator">
+        <table class="calculator"><br>
+          <tr>        
+            <td colspan="9"><input id="display" name="display" value="0" size="28" maxlength="25"></td>
+          </tr>
+          <tr>
+            <td><input type="button" class="btnTop" value="C" onclick="this.form.display.value=0"></td>
+            <td><input type="button" class="btnTop" value="<" onclick="deleteChar(this.form.display)"></td>
+            <td><input type="button" class="btnTop" value="=" onclick="if(checkNum(this.form.display.value)) { compute(this.form) }"></td>
+            <td><input type="button" class="btnCalc" value="&#960;" onclick="addChar(this.form.display,'3.14159265359')"></td>
+            <td><input type="button" class="btnMath" value="%" onclick="if(checkNum(this.form.display.value)) { percent(this.form) }"></td>
+          </tr>
+          <tr>
+            <td><input type="button" class="btnNum" value="7" onclick="addChar(this.form.display, '7')"></td>
+            <td><input type="button" class="btnNum" value="8" onclick="addChar(this.form.display, '8')"></td>
+            <td><input type="button" class="btnNum" value="9" onclick="addChar(this.form.display, '9')"></td>
+            <td><input type="button" class="btnCalc" value="x&#179;" onclick="if(checkNum(this.form.display.value)) { cube(this.form) }"></td>
+            <td><input type="button" class="btnMath" value="/" onclick="addChar(this.form.display, '/')"></td>
+          <tr>
+            <td><input type="button" class="btnNum" value="4" onclick="addChar(this.form.display, '4')"></td>
+            <td><input type="button" class="btnNum" value="5" onclick="addChar(this.form.display, '5')"></td>
+            <td><input type="button" class="btnNum" value="6" onclick="addChar(this.form.display, '6')"></td>
+            <td><input type="button" class="btnCalc" value="ln" onclick="if(checkNum(this.form.display.value)) { ln(this.form) }"></td>
+            <td><input type="button" class="btnMath" value="*" onclick="addChar(this.form.display, '*')"></td>
+          </tr>
+          <tr>
+            <td><input type="button" class="btnNum" value="1" onclick="addChar(this.form.display, '1')"></td>
+            <td><input type="button" class="btnNum" value="2" onclick="addChar(this.form.display, '2')"></td>
+            <td><input type="button" class="btnNum" value="3" onclick="addChar(this.form.display, '3')"></td>
+            <td><input type="button" class="btnCalc" value="&radic;" onclick="if(checkNum(this.form.display.value)) { sqrt(this.form) }"></td>
+            <td><input type="button" class="btnMath" value="-" onclick="addChar(this.form.display, '-')"></td>
+          </tr>
+          <tr>
+            <td><input type="button" class="btnMath" value="&#177" onclick="changeSign(this.form.display)"></td>
+            <td><input type="button" class="btnNum"  value="0" onclick="addChar(this.form.display, '0')"></td>
+            <td><input type="button" class="btnMath" value="&#46;" onclick="addChar(this.form.display, '&#46;')"></td>
+            <td><input type="button" class="btnCalc" value="x&#178" onclick="if(checkNum(this.form.display.value)) { square(this.form) }"></td>
+            <td><input type="button" class="btnMath" value="+" onclick="addChar(this.form.display, '+')"></td>
+          </tr>
+         <tr>
+            <td><input type="button" class="btnMath" value="x!"  onclick="if(checkNum(this.form.display.value)) { factorial(this.form) }"></td>
+            <td><input type="button" class="btnMath" value="e"  onclick="addChar(this.form.display,'2.71828182')"></td>
+            <td><input type="button" class="btnMath" value="e^" onclick="if(checkNum(this.form.display.value)) { exp(this.form) }"></td>
+            <td><input type="button" class="btnMath" value="deg" onclick="if(checkNum(this.form.display.value)) { degree(this.form) }"></td>
+            <td><input type="button" class="btnMath" value="rad" onclick="if(checkNum(this.form.display.value)) { radian(this.form) }"></td>
+         </tr>
+         <tr>
+            <td><input type="button" class="btnMath" value="(" onclick="addChar(this.form.display, '(')"></td>
+            <td><input type="button" class="btnMath" value=")" onclick="addChar(this.form.display,')')"></td>
+            <td><input type="button" class="btnMath" value="cos" onclick="if(checkNum(this.form.display.value)) { cos(this.form) }"></td>
+            <td><input type="button" class="btnMath" value="sin" onclick="if(checkNum(this.form.display.value)) { sin(this.form) }"></td>
+            <td><input type="button" class="btnMath" value="tan" onclick="if(checkNum(this.form.display.value)) { tan(this.form) }"></td>
+         </tr>
+        </table>
+      </section>
+        <br><br>
+
+        <h2>Matrix Calculator</h2>
+        <section id="matrix">
+          <div id="upper">
+              <div id="matrix1" class="parent">
+                  <h1 class="title">Matrix A</h1>
+                  <input type="number" class="m1r1" value="0"/>
+                  <input type="number" class="m1r1" value="0"/>
+                  <input type="number" class="m1r1" value="0"/>
+                  <input type="number" class="m1r2" value="0"/>
+                  <input type="number" class="m1r2" value="0"/>
+                  <input type="number" class="m1r2" value="0"/>
+                  <input type="number" class="m1r3" value="0"/>
+                  <input type="number" class="m1r3" value="0"/>
+                  <input type="number" class="m1r3" value="0"/>
+                  <div class="functions">
+                      <input type="button" class="function" value="Determinant(A)" onclick="mat_calc.calc_DetA()"/>
+                      <input type="button" class="function" value="Transpose(A)" onclick="mat_calc.transposeMatrixA()"/>
+                      <input type="button" class="function" value="Rank(A)" onclick="mat_calc.calRankA()"/>
+                      
+                      
+                  </div>
+              </div>
+              
+              <div id="matrix2" class="parent">
+                   <h1 class="title">Matrix B</h1>
+                   <input type="number" class="m2r1" value="0"/>
+                   <input type="number" class="m2r1" value="0"/>
+                   <input type="number" class="m2r1" value="0"/>
+                   <input type="number" class="m2r2" value="0"/>
+                   <input type="number" class="m2r2" value="0"/>
+                   <input type="number" class="m2r2" value="0"/>
+                   <input type="number" class="m2r3" value="0"/>
+                   <input type="number" class="m2r3" value="0"/>
+                   <input type="number" class="m2r3" value="0"/>
+                   <div class="functions">
+                      <input type="button" class="function" value="Determinant(B)" onclick="mat_calc.calc_DetB()"/>
+                      <input type="button" class="function" value="Transpose(B)" onclick="mat_calc.transposeMatrixB()"/>
+                      <input type="button" class="function" value="Rank(B)" onclick="mat_calc.calRankB()"/>   
+                  </div>
+              </div>
+              <br>
+          </div>
+
+          <div id="operations">
+            <input class="operation" type="button" value="A + B" onclick="mat_calc.addMatrix()"/>
+            <input class="operation" type="button" value="A - B" onclick="mat_calc.subtractMatrix()"/>
+            <input class="operation" type="button" value="A &times B" onclick="mat_calc.multiplyMatrix()"/>
+            <input type="button" class="operation" value="Clear Result" onclick="mat_calc.clear()"/>
+        </div>
+
+        <div id="lower">
+          <textarea wrap="soft" id="console" cols="20" rows="8" disabled>Result:</textarea>
+        </div>
+          <br>
+          
+         
+      </section>
+
+       </form>
+</body>
+</html>
